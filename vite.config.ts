@@ -5,9 +5,9 @@ export default defineConfig({
   plugins: [react()],
   build: {
     lib: {
-      entry: './src/index.jsx',
-      name: 'ReactPaginatorLibrary',
-      fileName: (format) => `react-paginator-library.${format}.js`,
+      entry: './src/index.tsx',
+      name: 'pagify',
+      fileName: (format) => `pagify.${format}.js`,
     },
     rollupOptions: {
       external: ['react', 'react-dom'],
