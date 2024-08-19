@@ -1,12 +1,12 @@
 {
-    "name": "pagify",
-    "private": true,
+    "name": "paginato",
+    "private": false,
     "version": "0.1.0",
     "description": "A simple and customizable paginator component for React.",
     "author": "Ayanfeoluwa Akindele",
     "type": "module",
-    "repository": { "type": "git", "url": "https://github.com/yourusername/react-paginator-library.git" },
-    "main": "dist/react-paginator-library.umd.js",
+    "repository": { "type": "git", "url": "https://github.com/Frokesy/paginato" },
+    "main": "src/index.tsx",
     "scripts": {
         "dev": "vite",
         "build": "tsc -b && vite build",
