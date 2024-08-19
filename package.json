@@ -1,33 +1,43 @@
 {
-    "name": "paginato",
-    "private": false,
-    "version": "0.1.0",
-    "description": "A simple and customizable paginator component for React.",
-    "author": "Ayanfeoluwa Akindele",
-    "type": "module",
-    "repository": { "type": "git", "url": "https://github.com/Frokesy/paginato" },
-    "main": "src/index.tsx",
-    "scripts": {
-        "dev": "vite",
-        "build": "tsc -b && vite build",
-        "lint": "eslint .",
-        "preview": "vite preview"
-    },
-    "dependencies": {
-        "react": "^18.3.1",
-        "react-dom": "^18.3.1"
-    },
-    "devDependencies": {
-        "@eslint/js": "^9.8.0",
-        "@types/react": "^18.3.3",
-        "@types/react-dom": "^18.3.0",
-        "@vitejs/plugin-react": "^4.3.1",
-        "eslint": "^9.8.0",
-        "eslint-plugin-react-hooks": "^5.1.0-rc.0",
-        "eslint-plugin-react-refresh": "^0.4.9",
-        "globals": "^15.9.0",
-        "typescript": "^5.5.3",
-        "typescript-eslint": "^8.0.0",
-        "vite": "^5.4.0"
-    }
+  "name": "paginato",
+  "private": false,
+  "version": "0.1.0",
+  "description": "A simple and customizable paginator component for React.",
+  "author": "Ayanfeoluwa Akindele",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Frokesy/paginato"
+  },
+  "main": "src/index.tsx",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "format": "prettier --write src//**/*.{ts,tsx,css} --config ./.prettierrc",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "mkdirp": "^3.0.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.8.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^9.9.0",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.9",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "globals": "^15.9.0",
+    "husky": "^9.1.4",
+    "prettier": "^3.3.3",
+    "react-hooks": "^1.0.1",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^8.0.0",
+    "vite": "^5.4.0"
+  }
 }
