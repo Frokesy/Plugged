@@ -1,18 +1,17 @@
 {
     "name": "paginato",
-    "private": true,
-    "version": "0.0.0",
+    "private": false,
+    "version": "0.2.0",
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "tsc -b && vite build",
+        "build": "tsc && vite build",
+        "preview": "vite preview",
         "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
         "lint:fix": "eslint --fix 'src/**/*.{jsx,ts,tsx}'",
         "format": "prettier --write src//**/*.{ts,tsx,css} --config ./.prettierrc",
-        "preview": "vite preview",
-        "prepare": "husky"
+        "prepare": "husky install"
     },
-
     "husky": {
         "hooks": {
             "pre-commit": "lint-staged"
@@ -20,29 +19,63 @@
     },
     "lint-staged": {
         "src/**/*.{js,jsx,ts,tsx}": [
-            "npm run eslint",
-            "npm run format"
+            "yarn  eslint",
+            "yarn  format"
         ]
     },
-    "dependencies": {
-        "react": "^18.3.1",
-        "react-dom": "^18.3.1"
+    "files": [
+        "dist"
+    ],
+    "exports": {
+        ".": {
+            "import": "./dist/paginator.es.js",
+            "require": "./dist/paginator.umd.js"
+        },
+        "./dist/paginator.css": "./dist/paginator.css"
     },
+    "main": "./dist/paginator.umd.js",
+    "module": "./dist/paginator.es.js",
+    "types": "./dist/index.d.ts",
     "devDependencies": {
-        "@eslint/js": "^9.9.0",
-        "@types/react": "^18.3.3",
-        "@types/react-dom": "^18.3.0",
-        "@vitejs/plugin-react": "^4.3.1",
-        "eslint": "^9.9.0",
-        "eslint-plugin-react-hooks": "^5.1.0-rc.0",
-        "eslint-plugin-react-refresh": "^0.4.9",
-        "eslint-plugin-simple-import-sort": "^12.1.1",
-        "globals": "^15.9.0",
-        "husky": "^9.1.4",
-        "prettier": "^3.3.3",
-        "react-hooks": "^1.0.1",
-        "typescript": "^5.5.3",
-        "typescript-eslint": "^8.0.1",
-        "vite": "^5.4.1"
-    }
+        "@types/node": "^18.7.6",
+        "@types/react": "^18.0.17",
+        "@types/react-dom": "^18.0.6",
+        "@typescript-eslint/eslint-plugin": "^5.34.0",
+        "@typescript-eslint/parser": "^5.34.0",
+        "@vitejs/plugin-react": "^2.1.0",
+        "eslint": "^8.2.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-import": "^2.25.3",
+        "eslint-plugin-jsx-a11y": "^6.5.1",
+        "eslint-plugin-prettier": "^4.2.1",
+        "eslint-plugin-react": "^7.30.1",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-plugin-simple-import-sort": "^7.0.0",
+        "husky": "^8.0.1",
+        "lint-staged": "^13.0.3",
+        "prettier": "^2.7.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "typescript": "^4.6.4",
+        "vite": "^3.1.0",
+        "vite-plugin-dts": "^1.4.1",
+        "vite-plugin-linter": "^1.2.0",
+        "vite-tsconfig-paths": "^3.5.0"
+    },
+    "peerDependencies": {
+        "react": "16.8.0 || >=17.x",
+        "react-dom": "16.8.0 || >=17.x"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Frokesy/paginato"
+    },
+    "keywords": [],
+    "author": "Ayanfeoluwa Akindele",
+    "description": "A simple and customizable paginator component for React.",
+    "bugs": {
+        "url": "https://github.com/Frokesy/paginato/issues"
+    },
+    "homepage": "https://github.com/Frokesy/paginato#readme",
+    "license": "MIT"
 }
