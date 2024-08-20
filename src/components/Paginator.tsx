@@ -1,35 +1,48 @@
-import { FC } from "react";
-import "./paginator.css"
+import React, { FC } from "react";
+import "./paginator.css";
 
 interface PaginatorProps {
-  totalPages: number;
+  itemsLength: number;
+  itemsPerPage: number;
   currentPage: number;
-  onPageChange?: (page: number) => void;
+  children: React.ReactNode;
+  paginate: (page: number) => void;
 }
 const Paginator: FC<PaginatorProps> = ({
-  totalPages,
+  itemsLength,
+  children,
+  paginate,
   currentPage,
+  itemsPerPage,
 }) => {
-  // const handlePrevious = () => onPageChange(Math.max(1, currentPage - 1));
-  // const handleNext = () => onPageChange(Math.min(totalPages, currentPage + 1));
+  const pageNumbers = [];
+
+  for (let i = 1; i <= Math.ceil(itemsLength / itemsPerPage); i++) {
+    pageNumbers.push(i);
+  }
+  const handlePrevious = () => paginate(Math.max(1, currentPage - 1));
+  const handleNext = () => paginate(Math.min(itemsLength, currentPage + 1));
+
+
 
   return (
-    <div>
-      <button
-        // onClick={handlePrevious}
-        disabled={currentPage === 1}
-      >
-        Previous
-      </button>
-      <span>
-        Page {currentPage} of {totalPages}
-      </span>
-      <button
-        // onClick={handleNext}
-        disabled={currentPage === totalPages}
-      >
-        Next
-      </button>
+    <div className="">
+      <div>{children}</div>
+      <div className="flex space-x-6">
+        <button onClick={handlePrevious} disabled={currentPage === 1}>
+          Previous
+        </button>
+        <div className="flex space-x-4">
+          {pageNumbers.map((number) => (
+            <div className="" key={number}>
+              <p>{number}</p>
+            </div>
+          ))}
+        </div>
+        <button onClick={handleNext} disabled={currentPage === itemsLength}>
+          Next
+        </button>
+      </div>
     </div>
   );
 };
